@@ -8,8 +8,9 @@
 			request = new XMLHttpRequest();
 			
 			console.log("1. request object created");
- 
-			request.open("GET", "https://api.sunrise-sunset.org/json?lat=42.387665116&lng=-71.102166258", true)
+ 			
+			//request json file from sunrise-sunset.org, fill in lat and lng for Somerville
+			request.open("GET", "https://api.sunrise-sunset.org/json?lat=42.3875968&lng=-71.0994968", true)
 
 			console.log("2. opened request file");
  
@@ -49,7 +50,7 @@
 	<div id="dayl">Loading...</div>
 	<br/>
 	<p><strong>API: </strong>Sunrise &amp; sunset times API</p>
-	<p><strong>What it does: </strong>It provides sunset and sunrise times for a given latitude and longitude.</p>
+	<p><strong>What it does: </strong>It provides information on day length, twilight, sunrise times, and sunset times for any date and location in the world, given latitude and longitude.</p>
 	<p><strong>Website: </strong><a href="https://sunrise-sunset.org/api" target="_blank">https://sunrise-sunset.org/api</a></p>
 	<p><strong>Options of request: </strong>
 		<ul>
@@ -61,8 +62,8 @@
 	</p>
 	<p><strong>Applications: </strong>
 		<ol type="1">
-			<li></li>
-			<li></li>
+			<li>Beach resorts: their website can let customers know what is the best time for watching sunrise and sunset. </li>
+			<li>Astronomical observatories: their website can display information like time of astronomical twilight, where the sky is dark enough for nearly all astronomical observations.</li>
 		</ol>
 	</p>
 	
