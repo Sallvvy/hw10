@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+	<title>Sunset &amp; Sunrise API</title>
+	<meta charset="utf-8"/>
+	<script>
+		function getSun() {
+			request = new XMLHttpRequest();
+			
+			console.log("1. request object created");
+ 
+			request.open("GET", "https://api.sunrise-sunset.org/json?lat=42.387665116&lng=-71.102166258", true)
+
+			console.log("2. opened request file");
+ 
+			request.onreadystatechange = function() {
+				 
+				if (request.readyState == 4 && request.status == 200) {
+					console.log("5. response received");
+					result = request.responseText;
+					document.getElementById("data").innerHTML = result;
+					sun = JSON.parse(result);
+					
+					//displays current day length
+					document.getElementById("dayl").innerHTML ="Current day length in Somerville: " + sun["results"]["day_length"]; 
+			
+				}
+				else if (request.readyState == 4 && request.status != 200) {
+					document.getElementById("data").innerHTML = "Something went wrong!";
+				}
+
+				else if (request.readyState == 3) {
+					document.getElementById("data").innerHTML = "Too soon! Try again";
+				}
+
+			}
+
+			request.send();
+			console.log("4. request sent");
+		}
+	</script>
+</head>
+
+
+<body onload="getSun()">
+	<h1>Sunrise &amp; Sunset</h1>
+	<div id="data">Loading...</div>
+	<br/>
+	<div id="dayl">Loading...</div>
+	<br/>
+	<p><strong>API: </strong>Sunrise &amp; sunset times API</p>
+	<p><strong>What it does: </strong>It provides sunset and sunrise times for a given latitude and longitude.</p>
+	<p><strong>Website: </strong><a href="https://sunrise-sunset.org/api" target="_blank">https://sunrise-sunset.org/api</a></p>
+	<p><strong>Options of request: </strong>
+		<ul>
+			<li>XMLHttpRequest(): to make an instance of request object</li>
+			<li>open() and "GET": to set URL for AJAX request to JSON file on server</li>
+			<li>onreadystatechange(): to set up event handler</li>
+			<li>send(): to send the request</li>
+		</ul>
+	</p>
+	<p><strong>Applications: </strong>
+		<ol type="1">
+			<li></li>
+			<li></li>
+		</ol>
+	</p>
+	
+</body>
+</html>
